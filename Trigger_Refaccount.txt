@@ -1,0 +1,8 @@
+create or replace trigger birat2 before insert on ref_account_type for each row 
+Declare
+Begin
+	if(:new.account_type_code not like 'a%')then
+		raise_application_error(-20002,'ID must starts with A');
+	end if;
+end;
+/

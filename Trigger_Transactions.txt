@@ -1,0 +1,8 @@
+create or replace trigger bitransactions before insert on transactions for each row 
+Declare
+Begin
+	if(:new.Transation_ID not like 't%')then
+		raise_application_error(-20003,'ID must starts with T');
+	end if;
+end;
+/

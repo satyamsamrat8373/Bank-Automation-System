@@ -1,0 +1,8 @@
+create or replace trigger biaddresses1 before insert on addresses for each row 
+Declare
+Begin
+	if(:new.addres_id not like 'a%')then
+		raise_application_error(-20001,'ID must starts with A');
+	end if;
+end;
+/
